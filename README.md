@@ -5,32 +5,32 @@
   Domain-Driven Design is about modeling business concepts in code so they accurately reflect the real-world domain. This is done by working closely with domain experts and developers to create a shared model that both technical and non-technical stakeholders can understand and use to communicate.
 I will briefly go over the layers of Domain-Driven Design and then demonstrate how they can be applied to DoorDash. For a more in-depth exploration, check out [herbertograca](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/) 
 
-  ### Layers:
+### Layers:
     There are 4 main layers: Domain, Application, Infrastructure, and Interface.  The idea is to keep each layer seprate from the other layer as to allow for extensiblity and change to the system
-    #### Domain
-      - The core of the system, where all the business rules live.
-        - Contains:
-          - Entities
-          - Value Objects
-          - Domain Services
-          - Domain Events
-      - The Domain layer should not depend on any technical details (databases, frameworks, UI). It should only contain plain code that models business logic.
-    #### Application
-      - Orchestrates use cases by coordinating domain objects.
-      - Depends on the domain layer but does not implement business rules itself.
-      - Examples: PlaceOrderService, CancelOrderService, AssignDasherService.
-      - May also handle transactions and security checks.
-    #### Infrastructure
-      - Provides technical details to support the domain and application layers.
-      - Handles persistence (databases), messaging, external APIs, and repositories.
-      - How external systems interact with the system.
-    #### Interface
-      - The presentation layer — how users interact with the application.
-      - Examples:
-        - REST or GraphQL controllers
-        - CLI interfaces
-        - gRPC endpoints
-      - Should be thin and delegate work to the application layer.
+#### Domain
+  - The core of the system, where all the business rules live.
+    - Contains:
+      - Entities
+      - Value Objects
+      - Domain Services
+      - Domain Events
+  - The Domain layer should not depend on any technical details (databases, frameworks, UI). It should only contain plain code that models business logic.
+#### Application
+  - Orchestrates use cases by coordinating domain objects.
+  - Depends on the domain layer but does not implement business rules itself.
+  - Examples: PlaceOrderService, CancelOrderService, AssignDasherService.
+  - May also handle transactions and security checks.
+#### Infrastructure
+  - Provides technical details to support the domain and application layers.
+  - Handles persistence (databases), messaging, external APIs, and repositories.
+  - How external systems interact with the system.
+#### Interface
+  - The presentation layer — how users interact with the application.
+  - Examples:
+    - REST or GraphQL controllers
+    - CLI interfaces
+    - gRPC endpoints
+  - Should be thin and delegate work to the application layer.
 
 <img width="1600" height="1094" alt="080-explicit-architecture-svg" src="https://github.com/user-attachments/assets/22fafae9-f0bb-4d04-8b31-fe7cde246d5e" />
 [herbertograca](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
